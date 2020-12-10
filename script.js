@@ -13,6 +13,11 @@ const getAbsoluteDistance = (number, target) => {
 }
 
 const compareGuesses = (userGuess, computerGuess, secretTarget) => {
+
+    if (userGuess > 0 && userGuess < 9) {
+        alert('Out of range');
+    };
+
     let userDifference = getAbsoluteDistance(userGuess, secretTarget);
     let computerDifference = getAbsoluteDistance(computerGuess, secretTarget);
 
