@@ -17,3 +17,12 @@ const compareGuesses = (userGuess, computerGuess, secretTarget) => {
         return false;
     }
 }
+
+const updateScore = (winner) => {
+    if (winner === 'human') {
+        humanScore++;
+    }
+    else if (winner === 'computer') {
+        computerScore++;
+    }
+}
