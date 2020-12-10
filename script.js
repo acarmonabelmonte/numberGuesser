@@ -2,14 +2,19 @@ let humanScore = 0;
 let computerScore = 0;
 let currentRoundNumber = 1;
 
-// Write your code below:
 const generateTarget = () => {
-    Math.floor(Math.random() * 10)
+    const target = Math.floor(Math.random() * 10);
+    return target;
+}
+
+const getAbsoluteDistance = (number, target) => {
+    let distance = Math.abs(number - target);
+    return distance;
 }
 
 const compareGuesses = (userGuess, computerGuess, secretTarget) => {
-    let userDifference = Math.abs(userGuess - secretTarget);
-    let computerDifference = Math.abs(computerGuess - secretTarget);
+    let userDifference = getAbsoluteDistance(userGuess, secretTarget);
+    let computerDifference = getAbsoluteDistance(computerGuess, secretTarget);
 
     if (userDifference <= computerDifference) {
         return true;
@@ -21,8 +26,11 @@ const compareGuesses = (userGuess, computerGuess, secretTarget) => {
 const updateScore = (winner) => {
     if (winner === 'human') {
         humanScore++;
-    }
-    else if (winner === 'computer') {
+    } else if (winner === 'computer') {
         computerScore++;
     }
+}
+
+const advanceRound = () => {
+    currentRoundNumber++;
 }
